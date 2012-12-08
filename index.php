@@ -10,16 +10,11 @@
 	<div class="container" id="opening">
 		<div id="faces">
 			<div class="row">
-				<div class="face-row span12 padding-bottom">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
+				<div class="height-block"></div>
+				<div class="face-row span12 padding-bottom align-center">
+					<?php for($i = 0; $i <=8; $i++){  ?>
+						<img src="/images/child<?php echo rand(1,4); ?>.jpg" style="width: 80px; height: 80px; margin-bottom: 10px;" />
+					<?php }; ?>					
 				</div>
 				
 
@@ -31,28 +26,22 @@
         			<button type="button" class="btn btn-success btn-large">How?</button>
         		</div>
 
-				<div class="face-row span12 padding-bottom">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
-					<img src="http://placehold.it/100x150">
+				<div class="face-row span12 padding-bottom align-center">
+					<?php for($i = 0; $i <=40; $i++){  ?>
+						<img src="/images/child<?php echo rand(1,4); ?>.jpg" style="width: 60px; height: 60px; margin-bottom: 10px;" />
+					<?php }; ?>					
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container hidden display-hidden" id="main">
+	<div class="container" id="main">
 		<div id="buttons">
 			<div class="row-fluid">
 				<div class="span4 align-center">
 					<a class="btn btn-primary btn-large" href="/buy-a-gift-card.php">I want to give someone a Gift Card</a>
 				</div>
 				<div class="span4 align-center">
-					<a class="btn btn-primary btn-large" href="/buy-a-gift-card.php">I want to use a Gift Card</a>
+					<a class="btn btn-primary btn-large" href="/use-a-gift-card.php">I want to use a Gift Card</a>
 				</div>
 				<div class="span4 align-center">
 					<a class="btn btn-primary btn-large" href="/buy-a-gift-card.php">I want to add a Project</a>

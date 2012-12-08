@@ -18,7 +18,7 @@
 		<div class="row-fluid">
 			<div class="span4">
 				<div class="user-image-holder">
-					<img class="user-image" src="/images/users/johnsmith.jpg" />
+					<img class="user-image" src="/images/users/johnsmith.jpg" style="width: 100%;" />
 				</div>
 								
 				<div class="height-block"></div>
@@ -47,7 +47,6 @@
 				foreach($projects as $project_id){
 					$project = get_project_data((int)$project_id);
 					echo render_project_entry($project);
-
 				}
 
 				?>
