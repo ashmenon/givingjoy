@@ -40,12 +40,8 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
 
 	<div class="container" id="displayHidden">
-=======
-	<div class="container" id="main">
->>>>>>> f28bafd445031687717f365abc087493e93eed63
 		<div id="buttons">
 			<div class="row-fluid">
 				<div class="span4 align-center">
