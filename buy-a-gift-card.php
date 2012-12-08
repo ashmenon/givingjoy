@@ -13,7 +13,7 @@
 		</div>
 
 
-		<form class="form-horizontal">
+		<form class="form-horizontal" action="transaction.php" method="post">
 		<div class="row-fluid">
 		<div class="span6">
 		  <div class="control-group">
