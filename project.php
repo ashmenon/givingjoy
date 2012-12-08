@@ -70,7 +70,7 @@ $organization = get_organization_data((int)$project['organization']);
 					$budget_data = get_project_budget_details((int)$project_id);
 					?>
 					<div class="progress">
-						<div class="bar" style="width: <?php echo $budget_data['total_donated'] / $budget_data['total_budget']; ?>%;"></div>
+						<div class="bar" style="width: <?php echo $budget_data['total_donated'] / $budget_data['total_budget'] * 100; ?>%;"></div>
 					</div>
 					<p class="lead">
 						<strong>RM <?php echo $budget_data['total_donated']; ?></strong> of <strong>RM <?php echo $budget_data['total_budget']; ?></strong> gifted!

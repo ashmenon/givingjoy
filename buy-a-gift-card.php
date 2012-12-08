@@ -13,7 +13,7 @@
 		</div>
 
 
-		<form class="form-horizontal" action="transaction.php" method="post">
+		<form class="form-horizontal" action="transaction-success.php" method="post">
 		<div class="row-fluid">
 		<div class="span6">
 		  <div class="control-group">
@@ -81,7 +81,15 @@
 		  </div>
 		  </div>
 		  <div class="span6">
-			owuhfoauehngouboua oua
+			<p>
+				Nulla etsy sustainable ethnic fingerstache. Raw denim photo booth thundercats eu tempor. Mcsweeney's placeat sustainable nulla, anim keffiyeh art party sed trust fund flexitarian truffaut cupidatat. Fugiat odd future nesciunt, cred sunt typewriter pitchfork post-ironic small batch sustainable mustache wayfarers lo-fi etsy scenester. Voluptate vice chillwave bicycle rights etsy laborum. Pinterest officia synth american apparel, chambray Austin magna. Banh mi carles typewriter DIY irony laborum.
+			</p>
+			<p>
+				Fanny pack aliquip wolf, voluptate williamsburg high life direct trade adipisicing consequat qui fingerstache chambray. Narwhal id you probably haven't heard of them locavore organic. PBR forage aliqua four loko raw denim, occupy dreamcatcher seitan iphone. Nisi marfa Austin blog. Fugiat narwhal cupidatat put a bird on it, beard esse non. Readymade nulla squid, wolf minim butcher beard do cosby sweater. Farm-to-table pinterest mcsweeney's scenester accusamus proident.
+			</p>
+			<p>
+				Readymade post-ironic eu cray. Non locavore sed portland sriracha, 3 wolf moon aliquip cupidatat raw denim freegan. Non labore biodiesel iphone direct trade, pour-over high life art party deserunt in fanny pack swag. Hella organic fanny pack echo park sartorial, biodiesel 8-bit ethical art party messenger bag four loko fugiat aliquip semiotics. Keytar wayfarers mumblecore, narwhal brunch fanny pack consequat craft beer sartorial id mcsweeney's vero truffaut bespoke. Voluptate pickled dolore, retro veniam in keffiyeh aute hoodie velit high life eiusmod banh mi. Aliqua sustainable beard forage ad odd future.
+			</p>
 		  </div>
 		  </div>
 		  <div class="form-actions">
