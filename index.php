@@ -9,35 +9,43 @@
 	<?php include_once('/includes/menu.php'); ?>
 	<div class="container" id="opening">
 		<div id="faces">
-			<div class="row-fluid">
-				<div class="face-row span12">
-
+			<div class="row">
+				<div class="face-row span12 padding-bottom">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
 				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="face-column">
+				
 
-				</div>
-				<div id="how_button_holder" class="face-column">
-					<button type="button" class="btn btn-success btn-large">How?</button>
-				</div>
-				<div class="face-column">
+				<div class="jumbotron">
+        			<h1>We're changing culture, society & the world!</h1>
+        			<p class="lead grey">What if every birthday gift would make a real difference in the world.</p>
+        			<p class="lead grey">Impacting society at every gift-giving occasion!</p>
+        			<p class="lead">Join our movement of giving 2.0</p>
+        			<button type="button" class="btn btn-success btn-large">How?</button>
+        		</div>
 
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="face-row span12">
-
+				<div class="face-row span12 padding-bottom">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
+					<img src="http://placehold.it/100x150">
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container hidden" id="main">
-		<div class="front-page-container row-fluid">
-			<h1 class="center">We're changing culture, society, &amp; the world.</h1>
-			<p class="lead">Join our movement of giving 2.0</p>
-		</div>
-
+	<div class="container hidden display-hidden" id="main">
 		<div id="buttons">
 			<div class="row-fluid">
 				<div class="span4 align-center">
