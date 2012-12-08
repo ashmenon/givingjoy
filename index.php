@@ -7,7 +7,7 @@
 </head>
 <body>
 	<?php include_once('/includes/menu.php'); ?>
-	<div class="container" id="opening">
+	<div class="container padding-top" id="opening">
 		<div id="faces">
 			<div class="row">
 				<div class="face-row span12 padding-bottom">
@@ -69,7 +69,7 @@
 	</div>
 	<?php include_once('/includes/js.php'); ?>
 	<script>
-		jQuery("#myModal").on("show")(function() {
+		jQuery("#myModal").on("hidden")(function() {
 		  return jQuery("#opening").remove();
 		});
 	</script>
