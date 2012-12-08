@@ -34,8 +34,16 @@ setcookie('selectproject',false,0);
 
 			<div class="height-block"></div>
 
-			<div class="row-fluid">
-				<a class="btn btn-large btn-success" href="use-card-confirm.php">Proceed</a>
+			<div class="row-fluid" id="confirm-button">
+				<a class="btn btn-large btn-success" href="#">Proceed</a>
+			</div>
+
+			<div class="row-fluid align-center" id="thankyou" style="display:none;">
+				<h3>Thank you!</h3>
+				<p class="lead">
+					Your contribution will make a difference today!
+				<p>	
+				<p class="muted">You will be redirected to the main page shortly.</p>
 			</div>			
 
 		</div>

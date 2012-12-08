@@ -16,5 +16,14 @@ $(document).ready(function(){
 			btn.text('Deselect Project');
 		}
 		return false;
+	});
+
+	$('#confirm-button a').click(function(){
+		$('#confirm-button').slideUp();
+		$('#thankyou').slideDown();
+		setTimeout(function(){
+			document.location.href = 'index.php';
+		},5000);
+		return false;
 	})
 })

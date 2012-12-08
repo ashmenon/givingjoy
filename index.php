@@ -37,14 +37,17 @@
 	<div class="container" id="main">
 		<div id="buttons">
 			<div class="row-fluid">
-				<div class="span4 align-center">
+				<div class="span3 align-center">
 					<a class="btn btn-primary btn-large" href="/buy-a-gift-card.php">I want to give someone a Gift Card</a>
 				</div>
-				<div class="span4 align-center">
+				<div class="span3 align-center">
 					<a class="btn btn-primary btn-large" href="/use-a-gift-card.php">I want to use a Gift Card</a>
 				</div>
-				<div class="span4 align-center">
+				<div class="span3 align-center">
 					<a class="btn btn-primary btn-large" href="/buy-a-gift-card.php">I want to add a Project</a>
+				</div>
+				<div class="span3 align-center">
+					<a class="btn btn-primary btn-large" href="/user-profile.php">I want to spread awareness about a Project</a>
 				</div>
 			</div>
 		</div>
