@@ -3,6 +3,9 @@ body {
     padding-bottom: 40px;
 }
 
+
+
+
 /* Main marketing message and sign up button */
 .jumbotron {
   margin: 20px 0;
@@ -44,3 +47,88 @@ body {
 .padding-top {
   padding-top: 10px;
 }
+
+
+/* Customize Giftcard */
+
+.container-gift {
+  padding-top: 10px;
+}
+
+p.lead {
+  line-height: 20px;
+}
+
+.rounded-corner {
+  border-radius:25px;
+}
+
+
+
+.box-shadow {
+  box-shadow:         2px 5px 21px rgba(50, 50, 50, 0.32);
+}
+
+
+
+#giftcard {
+  background-size: cover;
+  background-position: 50% 25%;
+  height: 200px;
+  padding: 50px 20px 20px 20px;
+  border: 1px solid #ccc;
+}
+
+#theme-1 {
+  background-image: url('http://1.bp.blogspot.com/_HJaPhQ3fW9I/S8A4Ce1NkTI/AAAAAAAAALc/Zu5Vr3gJj8U/s1600/grey-swirl-background.jpg');
+}
+
+#theme-2 {
+  background-image: url('http://1.bp.blogspot.com/_HJaPhQ3fW9I/S8A4Ce1NkTI/AAAAAAAAALc/Zu5Vr3gJj8U/s1600/grey-swirl-background.jpg');
+}
+
+.text-field {
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #ccc;
+  height: 30px;
+  width : 500px;
+  background-color: #fff
+}
+
+textarea#message {
+   margin-left: 0px;
+   margin-right: 0px;
+   width: 207px;
+   margin-top: 0px;
+   margin-bottom: 10px;
+   height: 200px; "
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

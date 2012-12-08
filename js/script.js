@@ -26,4 +26,52 @@ $(document).ready(function(){
 		},5000);
 		return false;
 	})
+
+  // on Modal shown, hide #opening - how #hidden
+  $("#myModal").on("show", function() {
+    $("#opening").hide(1000);
+  });
+
+
+
+  // Youtube end -> close modal
+  function onYouTubePlayerReady(playerId) {
+    ytplayer = document.getElementById("myytplayer");
+    ytplayer.addEventListener("onStateChange", "onytplayerStateChange");
+
+    function onytplayerStateChange(newState) {
+      if(newState === 0){
+        $("#myModal").modal('hide');
+      }
+    }
+  };
+
+  // on Modal hidden,   how #hidden
+  $("#myModal").on("hidden", function() {
+    $(".displayHidden").show(1000);
+  });
+
+  // Giftcard
+
+  $(function(){
+    $("#sender_name").keyup(function(){
+      $("#_sender_name").text(this.value);
+    });
+    $("#reciever_name").keyup(function(){
+      $("#_reciever_name").text(this.value);
+    });
+    $("#message").keyup(function(){
+      $("#_message").text(this.value);
+    });
+  });
+
+
+
+
+
+
+
+
+
+
 })
