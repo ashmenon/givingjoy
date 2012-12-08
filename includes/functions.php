@@ -117,6 +117,18 @@ function render_project_entry($project){
 	return $project_html;
 };
 
+function get_gift_card_details($token){
+	if(!$token) return array();
+	$card = get_query("SELECT * FROM gj_giftcards WHERE token = '$token'");
+	$card = $card[0];
 
+	return $card;
+}
+
+
+function get_projects($interests){
+	if(!is_array($interests)) return array();
+	//$projects = 
+}
 
 ?>
