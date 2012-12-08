@@ -83,8 +83,9 @@ function render_project_entry($project){
 					<?php echo $project['title']; ?>
 				</a>
 			</h4>
-			<em>by</em>
+			
 			<div class="organization-link-holder">
+				<em>by</em>  
 				<a href="/organization.php?id=<?php echo $project['organization']; ?>" class="project-organization-link">
 					<?php
 					$organization_title = get_query("SELECT title FROM gj_organizations WHERE id = {$project['organization']}");
@@ -99,16 +100,26 @@ function render_project_entry($project){
 			$budget_data = get_project_budget_details((int)$project['id']);
 			?>
 			<div class="row-fluid">
-				<div class="span3">
+				<div class="span3 align-center">
 					<strong>Budget</strong><br />
-					<?php echo $budget_data['total_budget']; ?>
+					RM <?php echo $budget_data['total_budget']; ?>
 				</div>
-				<div class="progress">
-					<div class="bar" style="width: <?php echo $budget_data['total_donated'] / $budget_data['total_budget']; ?>%;"></div>
-				</div>				
+				<div class="span3 align-center">
+					<strong>Actual Expenses</strong><br />
+					RM <?php echo $budget_data['total_actual']; ?>
+				</div>
+				<div class="span6">
+					<strong>RM <?php echo $budget_data['total_donated']; ?></strong> gifted so far.
+					<div class="progress">
+						<div class="bar" style="width: <?php echo $budget_data['total_donated'] / $budget_data['total_budget'] * 100; ?>%;"></div>
+					</div>
+				</div>
 			</div>
-			<div class="row-fluid">
-				<a class="btn btn-large btn-primary" href="/project.php?id=<?php echo $project['id']; ?>">View Project Details</a>
+			<div class="row-fluid align-right">
+				<?php if(@$_COOKIE['selectproject'] == true){ ?>
+					<a class="btn btn-primary btn-success btn-select-project" href="#" data-project-id="<?php echo $project['id']; ?>">Select Project</a>
+				<?php } ?>
+				<a class="btn btn-primary" href="/project.php?id=<?php echo $project['id']; ?>">View Project Details</a>
 			</div>
 		</div>
 	</div>
@@ -128,7 +139,18 @@ function get_gift_card_details($token){
 
 function get_projects($interests){
 	if(!is_array($interests)) return array();
-	//$projects = 
+	$project_ids = array();
+	foreach($interests as $key => $interest){
+		$project_id = get_query("SELECT id FROM `gj_projects` WHERE fields REGEXP '.*,?$interest,?.*'");
+		foreach($project_id as $key => $id){
+			$project_id[$key] = $id['id'];
+		}
+		$project_ids = array_merge($project_ids,$project_id);
+	}
+	$project_ids = array_unique($project_ids);
+	$projects = get_query("SELECT * FROM gj_projects WHERE id IN (" . join(',',$project_ids) . ")");
+
+	return $projects;
 }
 
 ?>
