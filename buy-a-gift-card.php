@@ -56,7 +56,7 @@
 		  	<label class="control-label" for="message">Add a personal message</label>
 		  	<div class="controls">
 		  		<textarea id="message" name="message"></textarea>
-		  		<span class="help-block">This message will appear on the Gift Card that you purchase, so make it special!</span>
+		  		<span class="help-block"><small>This message will appear on the Gift Card that you purchase, so make it special!</small></span>
 		  	</div>
 		  </div>
 
@@ -77,16 +77,17 @@
 					
 					<label class="checkbox" for="fields_checkbox_<?php echo $field['id']; ?>">
 						<input type="checkbox" id="fields_checkbox_<?php echo $field['id']; ?>" value="<?php echo $field['id']; ?>" name="fields_checkbox[]"> <?php echo $field['title']; ?>
-					</label>						
+					</label><br />				
 				
 					<?php
-				if($key % $rows == ($rows - 1)){ ?>
+				if($key % $rows == ($rows - 1) || $key == count($fields)-1){ ?>
 					</div>
 				<?php };
 
 		  	}
 
-		  	?>		    
+		  	?>	
+		  	<div class="clearfix"></div>	    
 		  	</div>
 		  </div>
 		  <div class="form-actions">

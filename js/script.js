@@ -29,7 +29,13 @@ $(document).ready(function(){
 
   // on Modal shown, hide #opening - how #hidden
   $("#myModal").on("show", function() {
-    $("#opening").hide(1000);
+    $("#opening,#organizations").hide(1000);
+    $('#giftbuttons').show(1000);
+  });
+
+  $("#skipintro").click(function() {    
+    $('#giftbuttons').show(1000);
+    return false;
   });
 
 

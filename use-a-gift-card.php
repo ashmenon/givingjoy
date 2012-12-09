@@ -19,9 +19,7 @@ if(isset($_GET['t'])){
 	<div class="container">
 		<div class="row-fluid">
 			<h3>Use a Gift Card</h3>
-			<?php if(isset($card)){ ?>
-				<p class="lead">Give the gift of giving!</p>
-			<?php }; ?>
+			
 		</div>
 
 		<div class="row-fluid">
@@ -59,8 +57,10 @@ if(isset($_GET['t'])){
 
 				<?php } else { ?>
 					<p class="lead"><strong><?php echo $card['sendername']; ?></strong> has purchased a Gift Card for you worth <strong>RM <?php echo $card['amount']; ?></strong>.</p>
-
-					<p class="muted">Here are some projects that <strong><?php echo $card['sendername']; ?></strong> thinks may interest you:</p>
+					<p>
+						<?php echo $card['sendername']; ?> has suggested that the following areas may be of interest to you: <strong>Animals</strong>, <strong>Nature</strong>, <strong>Women's Rights</strong>. <br />Based on that, we've found some Projects that we think you might be interested in: 
+					</p>
+					
 
 					<?php
 					$projects = get_projects(explode(',',$card['interests']));
