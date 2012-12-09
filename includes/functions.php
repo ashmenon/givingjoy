@@ -57,6 +57,49 @@ function get_project_expenses($project_id){
 
 };
 
+function render_project_mini_entry($project){
+	if(!$project || !is_array($project)) return false;
+	ob_start();
+	?>
+	<div class="project-mini-entry well well-small" id="project_mini_entry_<?php echo $project['id']; ?>">
+		<div class="row-fluid">
+			<?php
+			if(strlen($project['images'])){
+				$images = explode('||',$project['images']);
+				$main_image = $images[0];
+				if(substr($main_image,0,1) !== '/') $main_image = '/' . $main_image;
+			} else {
+				$main_image = '/images/defaults/project-image.png';
+			};
+			?>
+			<p class="align-center">
+				<a href="/project.php?id=<?php echo $project['id']; ?>" class="project-image-link" title="<?php echo $project['title']; ?>">
+					<img src="<?php echo $main_image; ?>" alt="<?php echo $project['title']; ?>"  class="project-image" />
+				</a>
+			</p>
+			<h4 class="project-title align-center">
+				<a href="/project.php?id=<?php echo $project['id']; ?>" class="project-title-link" title="<?php echo $project['title']; ?>">
+					<?php echo $project['title']; ?>
+				</a>
+			</h4>
+			
+			<div class="organization-link-holder align-center">
+				<em>by</em>  
+				<a href="/organization.php?id=<?php echo $project['organization']; ?>" class="project-organization-link">
+					<?php
+					$organization_title = get_query("SELECT title FROM gj_organizations WHERE id = {$project['organization']}");
+					$organization_title = $organization_title[0]['title'];
+					echo $organization_title; 
+					?>
+				</a>
+			</div>
+
+		</div>
+	</div>
+	<?php
+	$project_html = ob_get_clean();
+	return $project_html;
+}
 
 function render_project_entry($project){
 	if(!$project || !is_array($project)) return false;

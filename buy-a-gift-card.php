@@ -15,7 +15,7 @@
 
 		<form class="form-horizontal" action="transaction-success.php" method="post">
 		<div class="row-fluid">
-		<div class="span6">
+		<div class="span8">
 		  <div class="control-group">
 		    <label class="control-label" for="recipientname">Recipient's Name</label>
 		    <div class="controls">
@@ -52,9 +52,18 @@
 				</select>
 			</div>
 		  </div>
+		  <div class="control-group">
+		  	<label class="control-label" for="message">Add a personal message</label>
+		  	<div class="controls">
+		  		<textarea id="message" name="message"></textarea>
+		  		<span class="help-block">This message will appear on the Gift Card that you purchase, so make it special!</span>
+		  	</div>
+		  </div>
+
 		  
-		  <div id="interest_fields" class="row-fluid">
-			<h3>Interests</h3>
+		  <div class="control-group">
+		  	<label class="control-label">Interests</label>
+			<div class="controls">
 		  	<?php
 		  	$fields = get_query("SELECT * FROM gj_fields ORDER BY title");
 		  	$columns = 4;
@@ -78,23 +87,27 @@
 		  	}
 
 		  	?>		    
-		  </div>
-		  </div>
-		  <div class="span6">
-			<p>
-				Nulla etsy sustainable ethnic fingerstache. Raw denim photo booth thundercats eu tempor. Mcsweeney's placeat sustainable nulla, anim keffiyeh art party sed trust fund flexitarian truffaut cupidatat. Fugiat odd future nesciunt, cred sunt typewriter pitchfork post-ironic small batch sustainable mustache wayfarers lo-fi etsy scenester. Voluptate vice chillwave bicycle rights etsy laborum. Pinterest officia synth american apparel, chambray Austin magna. Banh mi carles typewriter DIY irony laborum.
-			</p>
-			<p>
-				Fanny pack aliquip wolf, voluptate williamsburg high life direct trade adipisicing consequat qui fingerstache chambray. Narwhal id you probably haven't heard of them locavore organic. PBR forage aliqua four loko raw denim, occupy dreamcatcher seitan iphone. Nisi marfa Austin blog. Fugiat narwhal cupidatat put a bird on it, beard esse non. Readymade nulla squid, wolf minim butcher beard do cosby sweater. Farm-to-table pinterest mcsweeney's scenester accusamus proident.
-			</p>
-			<p>
-				Readymade post-ironic eu cray. Non locavore sed portland sriracha, 3 wolf moon aliquip cupidatat raw denim freegan. Non labore biodiesel iphone direct trade, pour-over high life art party deserunt in fanny pack swag. Hella organic fanny pack echo park sartorial, biodiesel 8-bit ethical art party messenger bag four loko fugiat aliquip semiotics. Keytar wayfarers mumblecore, narwhal brunch fanny pack consequat craft beer sartorial id mcsweeney's vero truffaut bespoke. Voluptate pickled dolore, retro veniam in keffiyeh aute hoodie velit high life eiusmod banh mi. Aliqua sustainable beard forage ad odd future.
-			</p>
-		  </div>
+		  	</div>
 		  </div>
 		  <div class="form-actions">
-			  <button type="submit" class="btn btn-success">Purchase Gift Card</button>			  
+			  <button type="submit" class="btn btn-success btn-large"><i class="icon-gift"></i>&nbsp;Purchase Gift Card</button>			  
 			</div>
+		  </div>
+		  <div class="span4">
+		  	<img src="/images/charity-water2.jpg" />
+			<div class="height-block"></div>
+			<h4>How am I making a difference?</h4>
+			<p>
+				Many deserving causes around the world do not get the necessary funding they need because people don't know where the money they're giving is going. This means that there are honest, well-deserving causes that are unable to do what they set out to do.
+			</p>
+
+			<p>
+				GivingJoy.org aims to change that. When you purchase a Gift Card from GivingJoy.org, 80% of the transaction amount goes to the causes of your recipient's choice. The remaining 20% goes to GivingJoy.org's efforts to make sure these causes are accountable. These including auditing the causes' financials, and publishing those numbers on the site. This helps your recipient make more informed choices about where the money should go, and this means that the right causes get the money.
+			</p>
+			
+		  </div>
+		  </div>
+		  
 		</form>
 
 

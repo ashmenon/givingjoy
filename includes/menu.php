@@ -9,7 +9,7 @@
         <a class="brand" href="/index.php">Giving Joy</a>
         <div class="nav-collapse collapse navbar-responsive-collapse">
           <ul class="nav">
-            <li class="active"><a href="/index.php">Home</a></li>
+            <li><a href="/index.php">Home</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Giving Joy? <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -21,6 +21,14 @@
                   <li><a href="#">Get listed on Giving Joy</a></li>
                   <li><a href="#">How do we help you?</a></li>
               </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Gift Cards <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/buy-a-gift-card.php">Buy a Gift Card</a></li>
+                  <li><a href="/use-a-gift-card.php">Use a Gift Card</a></li>
+                </ul>
             </li>            
           </ul>
 

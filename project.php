@@ -81,13 +81,53 @@ $organization = get_organization_data((int)$project['organization']);
 				<?php
 				$expenses = get_project_expenses((int)$project_id);
 				?>
-				<h4>Budget</h4>
-				
-				
-					
-				
 				
 				<h4>Actual Expenses</h4>
+				<small><em>updated 5<sup>th</sup> August, 2012</em></small>
+
+				<div class="height-block"></div>
+
+				<table class="table table-bordered">
+					<tr>
+						<th>Item</th>
+						<th>Quantity</th>					
+						<th>Unit Price</th>
+						<th>Amount</th>
+					</tr>
+					<?php foreach($expenses as $key => $expense){
+						echo '<tr>';
+							echo '<td>' . $expense['expenditure'] . '</td>';
+							echo '<td>1</td>';
+							echo '<td>' . $expense['actual'] . '</td>';
+							echo '<td>' . $expense['actual'] . '</td>';
+						echo '</tr>';
+					}
+					?>
+				</table>
+
+
+
+				<h4>Budget</h4>
+
+				<div class="height-block"></div>
+
+				<table class="table table-bordered">
+					<tr>
+						<th>Item</th>
+						<th>Quantity</th>					
+						<th>Unit Price</th>
+						<th>Amount</th>
+					</tr>
+					<?php foreach($expenses as $key => $expense){
+						echo '<tr>';
+							echo '<td>' . $expense['expenditure'] . '</td>';
+							echo '<td>1</td>';
+							echo '<td>' . $expense['budget'] . '</td>';
+							echo '<td>' . $expense['budget'] . '</td>';
+						echo '</tr>';
+					}
+					?>
+				</table>
 				
 			</div>
 		
