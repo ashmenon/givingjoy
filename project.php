@@ -64,6 +64,14 @@ $organization = get_organization_data((int)$project['organization']);
 					<?php echo $project['description']; ?>
 				</div>
 				<div class="height-block"></div>
+				<h4>How can I help?</h4>
+				<ul>
+					<li><strong>RM 20</strong> will plant a new tree.</li>
+					<li><strong>RM 50</strong> will plant 3 new trees.</li>
+					<li><strong>RM 100</strong> will reforest a 2 square kilometer area.</li>
+				</ul>
+				<div class="height-block"></div>
+
 				
 				<div class="project-budget well well-small">
 					<?php
