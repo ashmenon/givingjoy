@@ -1,5 +1,19 @@
-<?php include_once('/includes/init.php'); ?>
-<!DOCTYPE html>
+<?//php include_once('/includes/init.php'); ?>
+<?php
+# This function reads your DATABASE_URL configuration automatically set by Heroku
+# the return value is a string that will work with pg_connect
+function pg_connection_string() {
+  // we will fill this out next
+}
+# Establish db connection
+$db = pg_connect(pg_connection_string());
+if (!$db) {
+  echo "Database connection error."
+  exit;
+}
+$result = pg_query($db, "SELECT statement goes here");
+?>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<title>Giving Joy</title>
@@ -21,14 +35,14 @@
 				<div class="jumbotron">
         			<h1>We're changing culture, society &amp; the world!</h1>
         			<p class="lead grey">
-        				What if every gift you bought could make a real difference in the world? &nbsp;&nbsp; 
+        				What if every gift you bought could make a real difference in the world? &nbsp;&nbsp;
         				<a href="#myModal" role="button" class="btn btn-success" data-toggle="modal">How?</a>
         				<a href="#" id="skipintro" role="button" class="btn">Skip Intro</a>
         			</p>
         			<!-- Button to trigger modal -->
-        			
 
-        			
+
+
         		</div>
 
 				<div class="face-row span12 padding-bottom align-center">
@@ -50,9 +64,9 @@
 	   <script type="text/javascript">
 
 	   </script>
-	   
+
 	</div>
-	
+
 	<div class="height-block"></div>
 	<div class="container displayHidden hide" id="giftbuttons">
 		<h2 class="align-center">
@@ -126,7 +140,7 @@
 			<div class="span1 align-center">
 				<img src="/images/organizations/wwf-2.jpg" />
 			</div>
-		</div>	
+		</div>
 	</div>
 
 	<?php include_once('/includes/js.php'); ?>
@@ -134,3 +148,4 @@
 </body>
 
 </html>
+ -->
