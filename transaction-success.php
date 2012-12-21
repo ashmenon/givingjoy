@@ -1,5 +1,77 @@
 <?php include_once('/includes/init.php'); ?>
 <?php
+
+$merchant_username = 'shahtr_1354930404_biz_api1.gmail.com';
+$merchant_password = '1354930427';
+$merchant_signature = 'AFcWxV21C7fd0v3bYYYRCpSSRl31A1mqIs4dspFHemQXZlaEsLVRfCVh';
+
+$currency = 'USD';
+
+$sandbox = true;
+$sandbox = ($sandbox) ? '.sandbox' : '';
+
+$domain = 'http://local.givingjoy.org';
+$API_Endpoint = "https://api-3t" . $sandbox . ".paypal.com/nvp";
+$version = 93;
+
+// Set the curl parameters.
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $API_Endpoint);
+curl_setopt($ch, CURLOPT_VERBOSE, 1);
+
+// Turn off the server and peer verification (TrustManager Concept).
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
+
+$padata = '&METHOD=GetExpressCheckoutDetails'.
+'&TOKEN=' . $_GET['token'];
+
+$nvpreq = "VERSION=$version&PWD=$merchant_password&USER=$merchant_username&SIGNATURE=$merchant_signature$padata";
+
+
+// Set the request as a POST FIELD for curl.
+curl_setopt($ch, CURLOPT_POSTFIELDS, $nvpreq);
+
+$capture_payment = urldecode(curl_exec($ch));
+$capture_payment = explode('&',$capture_payment);
+$capture_payment_ = array();
+foreach($capture_payment as $key => $capture_payment_val){
+	$capture_payment_val = explode('=',$capture_payment_val);
+	$capture_payment_[$capture_payment_val[0]] = $capture_payment_val[1];	
+}
+$capture_payment = $capture_payment_;
+unset($capture_payment_);
+
+
+$padata = '&METHOD=DoExpressCheckoutPayment'.
+'&TOKEN=' . $capture_payment['TOKEN'] . 
+'&PAYERID=' . $capture_payment['PAYERID'] . 
+'&PAYMENTREQUEST_0_PAYMENTACTION=SALE' .
+'&PAYMENTREQUEST_0_AMT=' . $capture_payment['PAYMENTREQUEST_0_AMT'] .
+'&PAYMENTREQUEST_0_CURRENCYCODE=' . $capture_payment['PAYMENTREQUEST_0_CURRENCYCODE'];
+
+$nvpreq = "VERSION=$version&PWD=$merchant_password&USER=$merchant_username&SIGNATURE=$merchant_signature$padata";
+
+// Set the request as a POST FIELD for curl.
+curl_setopt($ch, CURLOPT_POSTFIELDS, $nvpreq);
+$final_capture = urldecode(curl_exec($ch));
+$final_capture = explode('&',$final_capture);
+$final_capture_ = array();
+foreach($final_capture as $key => $final_capture_val){
+	$final_capture_val = explode('=',$final_capture_val);
+	$final_capture_[$final_capture_val[0]] = $final_capture_val[1];	
+}
+$final_capture = $final_capture_;
+unset($final_capture_);
+
+print_r($final_capture);
+
+die();
+?>
+<?php
 $post = $_POST;
 
 ?>

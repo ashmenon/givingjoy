@@ -6,20 +6,20 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="/index.php">Giving Joy</a>
+        <a class="brand" href="/index.php"><small><em>beta</em></small>Giving Joy</a>
         <div class="nav-collapse collapse navbar-responsive-collapse">
           <ul class="nav">
             <li><a href="/index.php">Home</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Giving Joy? <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">How does it work?</a></li>
-                  <li><a href="#">Frequently Asked Questions</a></li>
+                  <li><a href="/about-us.php">About Us</a></li>
+                  <li><a href="/how-does-it-work.php">How does it work?</a></li>
+                  <li><a href="/frequently-asked-questions.php">Frequently Asked Questions</a></li>
                   <li class="divider"></li>
                   <li class="nav-header">Organizations and NGOs</li>
-                  <li><a href="#">Get listed on Giving Joy</a></li>
-                  <li><a href="#">How do we help you?</a></li>
+                  <li><a href="/get-listed.php">Get listed on Giving Joy</a></li>
+                  <li><a href="/how-we-help-you.php">How do we help you?</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -33,8 +33,8 @@
           </ul>
 
           <ul class="nav pull-right">
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Help &amp; Support</a></li>
+              <li><a href="/contact.php">Contact</a></li>
+              <li><a href="/help-support.php">Help &amp; Support</a></li>
           </ul>
           
           <!--<ul class="nav pull-right">

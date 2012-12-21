@@ -1,3 +1,4 @@
+<?php include_once('./includes/init.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,9 +38,11 @@
 				</div>
 			</div>
 		</div>
-		<h2 class="align-center">Awesome people like you have donated $12,623,650 so far <br />
-				<small>That's enough to buy school books for 971,050 children around the world</small>
+		<h2 class="align-center">Awesome people like you have donated $12,623,650* so far <br />
+				<small>That's enough to buy school books for 971,050* children around the world</small>
+
 		</h2>
+		<p class="muted" align="center">* = <em>Note: Those numbers aren't exactly true. But then again, 46% of statistics are made up on the spot.</em></p>
 	</div>
 	<!-- Modal -->
 	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -56,7 +59,7 @@
 	<div class="container displayHidden hide" id="giftbuttons">
 		<h2 class="align-center">
 			What would you like to do?<br />
-			<small>Select from one of the four options below, or click <a href="#">here</a> if you're not sure what this is about.</small>
+			<small>Select from one of the four options below, or click <a href="/how-does-it-work.php">here</a> if you're not sure what this is about.</small>
 		</h2>
 		<div id="buttons">
 			<div class="row-fluid">
@@ -71,7 +74,7 @@
 					<img src="/images/gift_card.jpg" />
 				</div>
 				<div class="span3 align-center">
-					<a class="btn btn-primary btn-block" href="/buy-a-gift-card.php">I am an Organization and I want to add a Project</a>
+					<a class="btn btn-primary btn-block" href="/get-listed.php">I am an Organization and I want to add a Project</a>
 					<div class="height-block"></div>
 					<img src="/images/organization.jpg" />
 				</div>
@@ -127,7 +130,6 @@
 			</div>
 		</div>
 	</div>
-
 	<?php include_once('/includes/js.php'); ?>
 
 </body>
