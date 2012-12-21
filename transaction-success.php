@@ -1,18 +1,9 @@
-<?php include_once('/includes/init.php'); ?>
-<?php
+<?php 
+include_once('./includes/init.php'); 
 
-$merchant_username = 'shahtr_1354930404_biz_api1.gmail.com';
-$merchant_password = '1354930427';
-$merchant_signature = 'AFcWxV21C7fd0v3bYYYRCpSSRl31A1mqIs4dspFHemQXZlaEsLVRfCVh';
-
-$currency = 'USD';
-
-$sandbox = true;
 $sandbox = ($sandbox) ? '.sandbox' : '';
-
-$domain = 'http://local.givingjoy.org';
 $API_Endpoint = "https://api-3t" . $sandbox . ".paypal.com/nvp";
-$version = 93;
+
 
 // Set the curl parameters.
 $ch = curl_init();
@@ -66,10 +57,6 @@ foreach($final_capture as $key => $final_capture_val){
 }
 $final_capture = $final_capture_;
 unset($final_capture_);
-
-print_r($final_capture);
-
-die();
 ?>
 <?php
 $post = $_POST;
