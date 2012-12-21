@@ -20,9 +20,16 @@ $merchant_signature = 'AFcWxV21C7fd0v3bYYYRCpSSRl31A1mqIs4dspFHemQXZlaEsLVRfCVh'
 $sandbox = true;
 $currency = 'USD';
 $version = 93;
+/*
+$merchant_username = 'ViennaGivingJoy_api1.gmail.com';
+$merchant_password = '48HDA8J7H5MZ9TWV';
+$merchant_signature = 'AIbDCu0i3MgcY.hhHffCdT2hZUZJACoH0hAYK13jrtJdWAjvSaDe7lPF';
+$sandbox = false;
+$currency = 'MYR';
+*/
 
 
-$domain = 'http://local.givingjoy.org';
+$domain = 'http://' . $_SERVER['SERVER_NAME'];
 
 session_start();
 

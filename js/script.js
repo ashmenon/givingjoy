@@ -1,3 +1,5 @@
+var selectedProjects;
+
 $(document).ready(function(){
 	$('#sendbyemail').click(function(){
 		$('#email_message').slideDown();
@@ -6,17 +8,9 @@ $(document).ready(function(){
 		},5000);
 	});
 
-	$('.btn-select-project').click(function(){
-		var btn = $(this);
-		if(btn.hasClass('btn-warning')){
-			btn.removeClass('btn-warning');
-			btn.text('Select Project');
-		} else {
-			btn.addClass('btn-warning');
-			btn.text('Deselect Project');
-		}
-		return false;
-	});
+  if($.cookie('selectproject')){
+    initProjectSelect();
+  }
 
 	$('#confirm-button a').click(function(){
 		$('#confirm-button').slideUp();
@@ -71,13 +65,80 @@ $(document).ready(function(){
     });
   });
 
-
-
-
-
-
-
-
-
-
 })
+
+
+function initProjectSelect(){
+  if(!$('#use_form').length) return false;
+  $('#project_select_holder').remove();
+  $('body').addClass('bottomgap');
+  var holder = $('<div id="project_select_holder" class="container" />');
+  holder.insertBefore($('#use_form').parent());
+
+  holder.append('<h4>Selected Projects</h4>');
+  holder.append('<div id="projects_container" class="row-fluid">');
+
+  var container = holder.find('#projects_container');
+  container.append('<div class="clear-both"></div>');
+
+  var form = $('#use_form');
+  form.find('[type="reset"]').click(function(){
+    container.find('.selected-project .close').click();
+  });
+
+  form.submit(function(){
+    var str = '';
+    var selected = container.find('.selected-project');
+    if(!selected.length){
+      alert('Please select at least one project to contribute to.');
+      return false;
+    }
+    selected.each(function(index,item){
+      if(str.length) str += ',';
+      str += $(item).data('project-id');
+    });
+    form.find('#chosen_projects').val(str);
+    $.cookie('selected-projects',str);
+    return true;
+  })
+
+  $('.btn-select-project').live('click',function(){
+    var btn = $(this);
+    var projectId = btn.data('project-id');
+    var project = btn.closest('.project-entry');
+
+    if(btn.data('project-selected') == true){
+      container.find('#selected_project_' + projectId).remove();  
+      btn.html('Select Project').removeClass('btn-warning');
+      btn.data('project-selected',false);    
+    } else {
+      if(container.find('.selected-project').length >= 3){
+        alert('You have already selected the maximum of 3 projects. Please deselect another project to add this one.');
+        return false;
+      }
+      var selected = $('<div id="selected_project_' + projectId + '" class="selected-project span4" />');
+      selected.data('project-id',projectId);
+      
+      project.find('.project-image').clone().appendTo(selected);
+      
+      var projectTitle = $('<h4 />');
+      projectTitle.text(project.find('.project-title-link').text());
+      projectTitle.appendTo(selected);
+
+      var closeButton = $('<a class="close">&times;</a>');
+      closeButton.prependTo(selected);
+      
+      selected.insertBefore(container.find('.clear-both'));
+      btn.html('Deselect Project').addClass('btn-warning');
+      btn.data('project-selected',true);    
+    }
+
+  });
+
+  $('.selected-project .close').live('click',function(){
+    var btn = $(this);
+    var selected = btn.closest('.selected-project');
+    var projectId = selected.data('project-id');
+    $('#project_entry_' + projectId + ' .btn-select-project').click();
+  })
+}

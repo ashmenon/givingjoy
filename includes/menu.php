@@ -33,6 +33,7 @@
           </ul>
 
           <ul class="nav pull-right">
+              <li><a href="/disclaimer.php">Disclaimer</a></li>
               <li><a href="/contact.php">Contact</a></li>
               <li><a href="/help-support.php">Help &amp; Support</a></li>
           </ul>

@@ -18,12 +18,10 @@ if(isset($_GET['t'])){
 	<?php include_once('/includes/menu.php'); ?>
 	<div class="container">
 		<div class="row-fluid">
-			<h3>Use a Gift Card</h3>
-			
+			<h3>Use a Gift Card</h3>			
 		</div>
 
-		<div class="row-fluid">
-			
+		<div class="row-fluid">			
 				<?php if(!isset($_GET['t'])){ ?>
 				<div class="row-fluid">
 					<div class="span8">
@@ -72,7 +70,12 @@ if(isset($_GET['t'])){
 					<div class="height-block"></div>
 
 					<div class="row-fluid">
-						<a class="btn btn-large btn-success" href="use-card-confirm.php">Proceed</a>
+						<form action="/use-card-confirm.php" method="post" id="use_form">
+							<input name="chosen_projects" value="" type="hidden" id="chosen_projects" />
+							<input name="gift_card_token" value="<?php echo $_GET['t']; ?>" id="gift_card_token" type="hidden" />
+							<button type="submit" class="btn btn-success">Proceed</button>
+							<button type="reset" class="btn">Clear Choices</button>
+						</form>
 					</div>
 
 				<?php }; ?>

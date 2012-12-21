@@ -1,6 +1,7 @@
 <?php 
 include_once('./includes/init.php'); 
 
+if(!isset($_GET['token'])) header('location:index.php');
 $sandbox = ($sandbox) ? '.sandbox' : '';
 $API_Endpoint = "https://api-3t" . $sandbox . ".paypal.com/nvp";
 
@@ -36,6 +37,9 @@ foreach($capture_payment as $key => $capture_payment_val){
 $capture_payment = $capture_payment_;
 unset($capture_payment_);
 
+$query = "UPDATE gj_transactions SET payerid='" . $capture_payment['PAYERID'] . "', payeremail='" . $capture_payment['EMAIL'] . "', payername='" . $capture_payment['FIRSTNAME'] . ' ' . $capture_payment['LASTNAME'] . "', payerstatus='" . $capture_payment['PAYERSTATUS'] . "', paymentstatus='authorized' WHERE token = '" . $capture_payment['TOKEN'] . "' AND paymentstatus = 'pending'";
+do_query($query);
+
 
 $padata = '&METHOD=DoExpressCheckoutPayment'.
 '&TOKEN=' . $capture_payment['TOKEN'] . 
@@ -57,9 +61,20 @@ foreach($final_capture as $key => $final_capture_val){
 }
 $final_capture = $final_capture_;
 unset($final_capture_);
-?>
-<?php
-$post = $_POST;
+
+$amount = (float)$final_capture['PAYMENTINFO_0_AMT'];
+$paypal_fee = (float)$final_capture['PAYMENTINFO_0_FEEAMT'];
+$nett_amount = $amount - $paypal_fee;
+
+$query = "UPDATE gj_transactions SET paymentstatus='complete', paypalfee = $paypal_fee, nettamount = $nett_amount WHERE token='" . $final_capture['TOKEN'] . "'";
+do_query($query);
+
+$query = "UPDATE gj_giftcards SET status='payment complete' WHERE transaction = (SELECT id FROM gj_transactions WHERE token = '" . $final_capture['TOKEN'] . "' AND paymentstatus='complete')";
+do_query($query);
+
+//Get details of the giftcard.
+$giftcard_details = get_query("SELECT * FROM gj_giftcards WHERE transaction = (SELECT id FROM gj_transactions WHERE token = '" . $final_capture['TOKEN'] . "' AND paymentstatus='complete') LIMIT 0,1");
+$giftcard_details = $giftcard_details[0];
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -78,23 +93,23 @@ $post = $_POST;
 		<div class="row-fluid">
 			<div class="span8">
 				<div class="row-fluid">
-					<p>Your Gift Card purchase was successful. How would you like <strong><?php echo $post['recipientname']; ?></strong> to receive his/her Gift Card?</p>
+					<p>Your Gift Card purchase was successful. How would you like <strong><?php echo $giftcard_details['recipientname']; ?></strong> to receive his/her Gift Card?</p>
 					<div class="height-block"></div>
 					<div class="row-fluid">	
 						<div class="span6 align-center">
 							<a id="sendbyemail" class="btn btn-large btn-primary" href="#"><i class="icon-envelope"></i>&nbsp;Email</a>
 							<br /><br />
-							<span class="muted"><strong><?php echo $post['recipientname']; ?></strong> will receive his/her Gift Card in his/her email.</span>
+							<span class="muted"><strong><?php echo $giftcard_details['recipientname']; ?></strong> will receive his/her Gift Card in his/her email.</span>
 						</div>
 						<div class="span6 align-center">
 							<a id="sendbyprint" class="btn btn-large btn-primary" href="#"><i class="icon-print"></i>&nbsp;Print</a>
 							<br /><br />
-							<span class="muted">Print the Gift Card and give it to <strong><?php echo $post['recipientname']; ?></strong> as a present.</span>
+							<span class="muted">Print the Gift Card and give it to <strong><?php echo $giftcard_details['recipientname']; ?></strong> as a present.</span>
 						</div>
 					</div>
 					<div class="height-block"></div>
 					<div id="email_message" class="align-center" style="display:none;">
-						<p>An email has been sent to <strong><?php echo $post['recipientname']; ?></strong>. You will now be redirected to the frontpage shortly.</p>
+						<p>An email has been sent to <strong><?php echo $giftcard_details['recipientname']; ?></strong>. You will now be redirected to the frontpage shortly.</p>
 					</div>
 				</div>
 			</div>
@@ -103,7 +118,7 @@ $post = $_POST;
 				<div class="height-block"></div>
 				<h4>Thank You!</h4>
 				<p>
-					Besides being an awesome person and buying a gift for <?php echo $post['recipientname']; ?>, you are also helping to support various causes and efforts to make the world a better place. Go ahead, pat yourself on the back, you've earned it.
+					Besides being an awesome person and buying a gift for <?php echo $giftcard_details['recipientname']; ?>, you are also helping to support various causes and efforts to make the world a better place. Go ahead, pat yourself on the back, you've earned it.
 				</p>				
 			</div>
 		</div>

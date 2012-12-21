@@ -1,7 +1,18 @@
 <?php
 
+function generate_hash($length = 8){
+	$list = 'A B C D E F G H J K L M N P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9';
+	$list = explode(' ',$list);
+	$str = '';
+	while(strlen($str) <= $length){
+		$str .= $list[array_rand($list)];
+	}
+
+	return $str;
+}
+
 function get_query($syntax){
-	$result = mysql_query($syntax) or die('Database error.');;	
+	$result = mysql_query($syntax) or die('Database error.');	
 	if(mysql_num_rows($result) == 0){
 		$return = array();
 	} else if(mysql_num_rows($result) == 1){
@@ -12,8 +23,12 @@ function get_query($syntax){
 			$return[] = $row;
 		}
 	}
-
 	return $return;
+}
+
+function do_query($syntax){
+	$result = mysql_query($syntax) or die('Database error.');
+	return $result;
 }
 
 
@@ -160,7 +175,7 @@ function render_project_entry($project){
 			</div>
 			<div class="row-fluid align-right">
 				<?php if(@$_COOKIE['selectproject'] == true){ ?>
-					<a class="btn btn-primary btn-success btn-select-project" href="#" data-project-id="<?php echo $project['id']; ?>">Select Project</a>
+					<button class="btn btn-primary btn-success btn-select-project" data-project-id="<?php echo $project['id']; ?>">Select Project</button>
 				<?php } ?>
 				<a class="btn btn-primary" href="/project.php?id=<?php echo $project['id']; ?>">View Project Details</a>
 			</div>

@@ -13,7 +13,7 @@
 		</div>
 
 
-		<form class="form-horizontal" action="transaction-success.php" method="post">
+		<form class="form-horizontal" action="transaction.php" method="post" enctype="multipart/form-data">
 		<div class="row-fluid">
 		<div class="span8">
 		  <div class="control-group">
@@ -60,6 +60,14 @@
 		  	</div>
 		  </div>
 
+		  <div class="control-group">
+		  	<label class="control-label" for="bgimage">Choose an Image</label>
+		  	<div class="controls">
+		  		<input type="file" name="bgimage" id="bgimage" accept="image/jpeg,image/png" />
+		  		<span class="help-block"><small>If you upload a photo, it will be used as the background of the card. Only JPG and PNG files are allowed.</small></span>
+		  	</div>
+		  </div>
+
 		  
 		  <div class="control-group">
 		  	<label class="control-label">Interests</label>
@@ -91,7 +99,10 @@
 		  	</div>
 		  </div>
 		  <div class="form-actions">
-			  <button type="submit" class="btn btn-success btn-large"><i class="icon-gift"></i>&nbsp;Purchase Gift Card</button>			  
+			  <button type="submit" class="btn btn-success"><i class="icon-gift"></i>&nbsp;Purchase Gift Card</button>
+			  <button type="reset" class="btn">Clear Form</button>
+			  <br /><br />
+			  <span class="muted">You will be redirected to the PayPal website to authorize the payment. This process might take a few minutes, <strong>do not</strong> click the purchase button again.</span>
 			</div>
 		  </div>
 		  <div class="span4">

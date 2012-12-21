@@ -3,7 +3,8 @@ include_once('./includes/init.php');
 $topic_options = array(
 	'general' => 'General Contact',
 	'support' => 'Support / Technical Assistance',
-	'partnership' => 'Partnership / Collaboration Opportunities'
+	'partnership' => 'Partnership / Collaboration Opportunities',
+	'feedback' => 'Feedback on Service'
 );
 
 if(isset($_POST) && count($_POST)){
