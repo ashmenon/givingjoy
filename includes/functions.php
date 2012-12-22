@@ -13,6 +13,7 @@ function generate_hash($length = 8){
 
 function get_query($syntax){
 	$result = mysql_query($syntax) or die('Database error.');	
+	//$result = mysql_query($syntax) or die('Database error: ' . $syntax);
 	if(mysql_num_rows($result) == 0){
 		$return = array();
 	} else if(mysql_num_rows($result) == 1){
@@ -28,6 +29,7 @@ function get_query($syntax){
 
 function do_query($syntax){
 	$result = mysql_query($syntax) or die('Database error.');
+	//$result = mysql_query($syntax) or die('Database error: ' . $syntax);
 	return $result;
 }
 
@@ -196,17 +198,25 @@ function get_gift_card_details($token){
 
 
 function get_projects($interests){
-	if(!is_array($interests)) return array();
-	$project_ids = array();
-	foreach($interests as $key => $interest){
-		$project_id = get_query("SELECT id FROM `gj_projects` WHERE fields REGEXP '.*,?$interest,?.*'");
-		foreach($project_id as $key => $id){
-			$project_id[$key] = $id['id'];
+	if(!is_array($interests)) return array();	
+	if(count($interests)){
+		$project_ids = array();
+		foreach($interests as $key => $interest){
+			$project_id = get_query("SELECT id FROM `gj_projects` WHERE fields REGEXP '.*,?$interest,?.*'");
+			foreach($project_id as $key => $id){
+				$project_id[$key] = $id['id'];
+			}
+			$project_ids = array_merge($project_ids,$project_id);
 		}
-		$project_ids = array_merge($project_ids,$project_id);
+		$project_ids = array_unique($project_ids);
+		if(count($project_ids)){
+			$projects = get_query("SELECT * FROM gj_projects WHERE id IN (" . join(',',$project_ids) . ")");
+		} else {
+			$projects = get_query("SELECT * FROM gj_projects ORDER BY RAND() LIMIT 0,10");
+		}
+	} else {
+		$projects = get_query("SELECT * FROM gj_projects ORDER BY RAND() LIMIT 0,10");
 	}
-	$project_ids = array_unique($project_ids);
-	$projects = get_query("SELECT * FROM gj_projects WHERE id IN (" . join(',',$project_ids) . ")");
 
 	return $projects;
 }
