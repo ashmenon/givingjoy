@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$('#sendbyemail').click(function(){
 
 		$('#email_message').slideDown();
-    $.getJSON('ajax.php',{
+    $.post('ajax.php',{
       fn:'send_recipient_email',
       giftcard_token: $('#sendbyemail').data('giftcard-token')
     },function(data){
