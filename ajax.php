@@ -1,7 +1,7 @@
 <?php
 include_once('./includes/init.php');
 
-if(!$_POST) || !count($_POST)) die('Illegal Access');
+if(!$_POST || !count($_POST)) die('Illegal Access');
 $function = $_POST['fn'];
 if(!isset($_POST['options']) || !is_array($_POST['options'])){
 	$options = array();
