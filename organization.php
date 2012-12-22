@@ -1,4 +1,4 @@
-<?php include_once('/includes/init.php'); ?>
+<?php include_once('./includes/init.php'); ?>
 <?php
 $organization_id = $_GET['id'];
 $organization = get_organization_data((int)$organization_id);
@@ -7,10 +7,10 @@ $organization = get_organization_data((int)$organization_id);
 <html>
 <head>
 	<title><?php echo $organization['title']; ?> || Giving Joy</title>	
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body class="organization-detail-page">
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container">
 		<div class="height-block"></div>
 		<div class="row-fluid">
@@ -38,7 +38,7 @@ $organization = get_organization_data((int)$organization_id);
 		
 		
 	</div>
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 </body>
 
 </html>

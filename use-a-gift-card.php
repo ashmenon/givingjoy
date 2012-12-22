@@ -1,4 +1,4 @@
-<?php include_once('/includes/init.php'); ?>
+<?php include_once('./includes/init.php'); ?>
 <?php
 if(isset($_GET['t'])){
 	$card = get_gift_card_details($_GET['t']);
@@ -12,10 +12,10 @@ if(isset($_GET['t'])){
 <html>
 <head>
 	<title>Giving Joy - Use Your Gift Card</title>	
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body>
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container">
 		<div class="row-fluid">
 			<h3>Use a Gift Card</h3>			
@@ -83,7 +83,7 @@ if(isset($_GET['t'])){
 
 		</div>
 	</div>
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 </body>
 
 </html>

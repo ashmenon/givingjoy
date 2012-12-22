@@ -1,4 +1,4 @@
-<?php include_once('/includes/init.php'); ?>
+<?php include_once('./includes/init.php'); ?>
 <?php
 $project_id = $_GET['id'];
 $project = get_project_data((int)$project_id);
@@ -8,10 +8,10 @@ $organization = get_organization_data((int)$project['organization']);
 <html>
 <head>
 	<title><?php echo $organization['title'] . ' - ' . $project['title']; ?> || Giving Joy</title>	
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body class="project-detail-page">
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container">
 		<div class="height-block"></div>
 		<div class="row-fluid">
@@ -143,7 +143,7 @@ $organization = get_organization_data((int)$project['organization']);
 
 		
 	</div>
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 </body>
 
 </html>

@@ -81,10 +81,10 @@ $giftcard_details = $giftcard_details[0];
 <html>
 <head>
 	<title>Giving Joy - Success</title>	
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body>
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container">
 		<div class="row-fluid">
 			<h3>Congratulations!</h3>
@@ -123,7 +123,7 @@ $giftcard_details = $giftcard_details[0];
 			</div>
 		</div>
 	</div>
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 </body>
 
 </html>
