@@ -14,7 +14,7 @@ switch($function){
 	break;
 }
 
-send_recipient_email($giftcard_token,$options){
+function send_recipient_email($giftcard_token,$options){
 	$giftcard_token = mysql_real_escape_string($giftcard_token);
 	$giftcard_details = get_query("SELECT * FROM gj_giftcards WHERE token='$giftcard_token' LIMIT 0,1");
 	$giftcard_details = $giftcard_details[0];
@@ -67,7 +67,7 @@ send_recipient_email($giftcard_token,$options){
 			echo '<img src="' . $domain . $main_image . '" alt="' . $project['title'] . '" title="' . $project['title'] . '" />';
 			echo '<br /><br />';
 			echo '<h5><a href="' . $domain . '/project?id=' . $project['id'] . '" title="' . $project['title'] . '">' . $project['title'] . '</a></h5>';
-			echo "</td>":
+			echo "</td>";
 		}
 		$emailmessage .= '
 		</tr>
@@ -85,7 +85,7 @@ send_recipient_email($giftcard_token,$options){
 	$sendmail = @mail($giftcard_details['recipientname'] . '<' . $giftcard_details['recipientemail'] . '>',$giftcard_details['sendername'] . ' has sent you a GivingJoy.org Gift Card!',$emailmessage,$headers);
 
 
-	$response = json_encode('status' => 'OK','mailsend' => $sendmail);
+	$response = json_encode(array('status' => 'OK','mailsend' => $sendmail));
 	die($response);
 
 
