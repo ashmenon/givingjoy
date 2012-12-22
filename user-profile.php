@@ -1,12 +1,12 @@
-<?php include_once('/includes/init.php'); ?>
+<?php include_once('./includes/init.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
 	<title>John Smith || Giving Joy</title>	
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body class="user-profile-page">
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container">
 		<div class="height-block"></div>
 		<div class="row-fluid">
@@ -57,7 +57,7 @@
 
 		
 	</div>
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 </body>
 
 </html>

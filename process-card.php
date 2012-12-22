@@ -1,4 +1,4 @@
-<?php include_once('/includes/init.php'); ?>
+<?php include_once('./includes/init.php'); ?>
 <?php
 if(!$_POST || !count($_POST)) header('location: /index.php');
 $post = $_POST;
@@ -81,10 +81,10 @@ $mailsend = @mail($card_details['sendername'] . '<' . $card_details['senderemail
 <html>
 <head>
 	<title>Thank You! | Giving Joy</title>
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body>
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container">
 		<div class="row-fluid">
 			<h3>You're Awesome!</h3>
@@ -106,7 +106,7 @@ $mailsend = @mail($card_details['sendername'] . '<' . $card_details['senderemail
 		</div>	
 	</div>
 
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 
 </body>
 

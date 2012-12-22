@@ -1,4 +1,4 @@
-<?php include_once('/includes/init.php'); ?>
+<?php include_once('./includes/init.php'); ?>
 <?php
 setcookie('selectproject',false,0);
 $projects = $_POST['chosen_projects'];
@@ -9,10 +9,10 @@ if(!$_POST || !count($_POST)) header('location: /index.php');
 <html>
 <head>
 	<title>Giving Joy - Confirm Details</title>	
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body>
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container">
 		<div class="row-fluid">
 			<h3>Confirm Gift Card Usage</h3>			
@@ -70,7 +70,7 @@ if(!$_POST || !count($_POST)) header('location: /index.php');
 
 		</div>
 	</div>
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 </body>
 
 </html>

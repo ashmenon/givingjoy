@@ -3,10 +3,10 @@
 <html>
 <head>
 	<title>Giving Joy</title>
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body>
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container padding-top" id="opening">
 		<div id="faces">
 			<div class="row">
@@ -130,7 +130,7 @@
 			</div>
 		</div>
 	</div>
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 
 </body>
 

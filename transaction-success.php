@@ -122,10 +122,10 @@ $sendmail = @mail($giftcard_details['sendername'] . '<' . $giftcard_details['sen
 <html>
 <head>
 	<title>Giving Joy - Success</title>	
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body>
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container">
 		<div class="row-fluid">
 			<h3>Congratulations!</h3>
@@ -164,7 +164,7 @@ $sendmail = @mail($giftcard_details['sendername'] . '<' . $giftcard_details['sen
 			</div>
 		</div>
 	</div>
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 </body>
 
 </html>

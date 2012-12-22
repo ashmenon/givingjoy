@@ -3,10 +3,10 @@
 <html>
 <head>
 	<title>Frequently Asked Questions | Giving Joy</title>
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body>
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container">
 		<div class="row-fluid">
 			<h3>Frequently Asked Questions</h3>
@@ -21,7 +21,7 @@
 		
 	</div>
 
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 
 </body>
 

@@ -65,7 +65,7 @@ send_recipient_email($giftcard_token,$options){
 			$main_image = $images[0];
 			echo "<td>";
 			echo '<img src="' . $domain . $main_image . '" alt="' . $project['title'] . '" title="' . $project['title'] . '" />';
-			echo '<br /><Br />';
+			echo '<br /><br />';
 			echo '<h5><a href="' . $domain . '/project?id=' . $project['id'] . '" title="' . $project['title'] . '">' . $project['title'] . '</a></h5>';
 			echo "</td>":
 		}

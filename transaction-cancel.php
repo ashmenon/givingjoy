@@ -16,10 +16,10 @@ do_query($query);
 <html>
 <head>
 	<title>Giving Joy - Payment Cancelled</title>	
-	<?php include_once('/includes/css.php'); ?>
+	<?php include_once('./includes/css.php'); ?>
 </head>
 <body>
-	<?php include_once('/includes/menu.php'); ?>
+	<?php include_once('./includes/menu.php'); ?>
 	<div class="container">
 		<div class="row-fluid">
 			<p align="center">
@@ -34,7 +34,7 @@ do_query($query);
 			</p>
 		</div>		
 	</div>
-	<?php include_once('/includes/js.php'); ?>
+	<?php include_once('./includes/js.php'); ?>
 </body>
 
 </html>
