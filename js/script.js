@@ -2,10 +2,19 @@ var selectedProjects;
 
 $(document).ready(function(){
 	$('#sendbyemail').click(function(){
+
 		$('#email_message').slideDown();
-		setTimeout(function(){
-			document.location.href = 'index.php';
-		},5000);
+    $.getJSON('ajax.php',{
+      fn:'send_recipient_email',
+      giftcard_token: $('#sendbyemail').data('giftcard-token')
+    },function(data){
+      if(data.status == 'OK'){
+        setTimeout(function(){
+          document.location.href = 'index.php';
+        },1000);
+      }
+    })
+		
 	});
 
   if($.cookie('selectproject')){

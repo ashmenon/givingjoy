@@ -72,9 +72,50 @@ do_query($query);
 $query = "UPDATE gj_giftcards SET status='payment complete' WHERE transaction = (SELECT id FROM gj_transactions WHERE token = '" . $final_capture['TOKEN'] . "' AND paymentstatus='complete')";
 do_query($query);
 
+
 //Get details of the giftcard.
 $giftcard_details = get_query("SELECT * FROM gj_giftcards WHERE transaction = (SELECT id FROM gj_transactions WHERE token = '" . $final_capture['TOKEN'] . "' AND paymentstatus='complete') LIMIT 0,1");
 $giftcard_details = $giftcard_details[0];
+
+
+
+//Send out email to the sender.
+$emailmessage = '
+<html><body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<p>Dear ' . $giftcard_details['sendername'] . ',</p>
+			<p>The GivingJoy.org Gift Card that you bought for  ' . $giftcard_details['recipientname'] . ' for RM' . $giftcard_details['amount'] . ' has been successfully processed.</p>
+			
+			<p>You can use your GivingJoy.org Gift Card to make contributions to various projects and charities listed on the GivingJoy.org website. To do so, click <a href="' . $domain . '/use-a-gift-card.php?t=' . $giftcard_details['token'] . '">here</a>.</p>
+			
+			<p>If the above link does not work for you, simply go to the GivingJoy.org website, select "Use a Gift Card" from the menu, and enter the token below:</p>
+			<p align="center"><strong>' . $giftcard_details['token'] . '</strong></p>
+			
+			<p>We at GivingJoy.org would like to thank you and ' . $giftcard_details['sendername'] . ' for helping us make a difference in the world. We look forward to having you on the site!</p>
+			
+			<p>Sincerely,<br />
+			The GivingJoy.org Team<br />
+			<a href="' . $domain . '">http://www.givingjoy.org</a>
+			</p>			
+		</td>
+		<td style="width:20px;"></td>
+		<td valign="top" align="right">
+			<a href="' . $domain . '/use-a-gift-card.php?t=' . $giftcard_details['token'] . '">
+				<img src="' . $domain . '/images/gift_cards/' . $giftcard_details['token'] . '.jpg" />
+			</a>
+		</td>
+	</tr>
+</table></body></html>
+';
+
+$headers = "From: " . $adminemail . "\r\n";
+$headers .= "Reply-To: " . $adminemail . "\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+$sendmail = @mail($giftcard_details['sendername'] . '<' . $giftcard_details['senderemail'] . '>','Dear ' . $giftcard_details['sendername'] . ', your GivingJoy.org Gift Card has been sent!',$emailmessage,$headers);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -97,14 +138,14 @@ $giftcard_details = $giftcard_details[0];
 					<div class="height-block"></div>
 					<div class="row-fluid">	
 						<div class="span6 align-center">
-							<a id="sendbyemail" class="btn btn-large btn-primary" href="#"><i class="icon-envelope"></i>&nbsp;Email</a>
+							<a id="sendbyemail" data-giftcard-token="<?php echo $giftcard_details['token']; ?>" class="btn btn-large btn-primary" href="#"><i class="icon-envelope"></i>&nbsp;Email</a>
 							<br /><br />
 							<span class="muted"><strong><?php echo $giftcard_details['recipientname']; ?></strong> will receive his/her Gift Card in his/her email.</span>
 						</div>
 						<div class="span6 align-center">
-							<a id="sendbyprint" class="btn btn-large btn-primary" href="#"><i class="icon-print"></i>&nbsp;Print</a>
+							<a id="sendbyprint" class="btn btn-large btn-primary" target="_blank" href="/images/gift_cards/<?php echo $giftcard_details['token']; ?>.jpg"><i class="icon-print"></i>&nbsp;Print</a>
 							<br /><br />
-							<span class="muted">Print the Gift Card and give it to <strong><?php echo $giftcard_details['recipientname']; ?></strong> as a present.</span>
+							<span class="muted">Clicking on the button above will guide you to the image, which you can print out at home. Print the Gift Card and give it to <strong><?php echo $giftcard_details['recipientname']; ?></strong> as a present.</span>
 						</div>
 					</div>
 					<div class="height-block"></div>

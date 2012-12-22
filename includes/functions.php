@@ -55,7 +55,7 @@ function get_organization_data($organization_id){
 
 function get_project_budget_details($project_id){
 	if(!$project_id || !is_int($project_id)) return array();
-	$budget_data = get_query("SELECT SUM(b.budget) AS total_budget, SUM(b.actual) AS total_actual, (SELECT SUM(d.amount) FROM gj_donations AS d WHERE d.project = $project_id) AS total_donated FROM  gj_budgets_expenditures AS b WHERE b.project = $project_id");
+	$budget_data = get_query("SELECT SUM(b.budget) AS total_budget, SUM(b.actual) AS total_actual, (SELECT SUM(d.amount) FROM gj_donations AS d WHERE d.project = $project_id AND status='paid') AS total_donated FROM  gj_budgets_expenditures AS b WHERE b.project = $project_id");
 	$budget_data = $budget_data[0];
 	foreach($budget_data as $key => $data){
 		if($data == null || !$data){
