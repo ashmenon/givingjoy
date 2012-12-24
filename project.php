@@ -39,8 +39,7 @@ $organization = get_organization_data((int)$project['organization']);
 					<div class="span2">
 						<?php if(count($images) > 1){
 							echo '<div class="row-fluid">';
-							foreach($images as $key => $image){
-								if($key == 0) continue;
+							foreach($images as $key => $image){								
 								if(substr($image,0,1) !== '/') $image = '/' . $image;
 								echo '<img class="project-thumbnail-image" src="' . $image . '" />';
 							};

@@ -29,6 +29,13 @@
                   <li><a href="/buy-a-gift-card.php">Buy a Gift Card</a></li>
                   <li><a href="/use-a-gift-card.php">Use a Gift Card</a></li>
                 </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Projects <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/projects.php">View All Projects</a></li>
+                </ul>
             </li>            
           </ul>
 

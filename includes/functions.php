@@ -197,7 +197,7 @@ function get_gift_card_details($token){
 }
 
 
-function get_projects($interests){
+function get_projects($interests = array()){
 	if(!is_array($interests)) return array();	
 	if(count($interests)){
 		$project_ids = array();

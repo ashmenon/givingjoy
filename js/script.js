@@ -74,6 +74,12 @@ $(document).ready(function(){
     });
   });
 
+  $('.project-thumbnail-image').click(function(){    
+    var thumb = $(this);
+    var mainImg = thumb.closest('.well').find('.project-image');
+    mainImg.attr('src',thumb.attr('src'));
+  })
+
 })
 
 
