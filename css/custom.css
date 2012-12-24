@@ -1,10 +1,8 @@
 body {
    	padding-top: 1px;
     padding-bottom: 40px;
+    overflow-y: scroll;
 }
-
-
-
 
 /* Main marketing message and sign up button */
 .jumbotron {

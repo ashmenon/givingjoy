@@ -14,7 +14,7 @@ $(document).ready(function(){
         },1000);
       }
     })
-		
+
 	});
 
   if($.cookie('selectproject')){
@@ -33,10 +33,9 @@ $(document).ready(function(){
   // on Modal shown, hide #opening - how #hidden
   $("#myModal").on("show", function() {
     $("#opening,#organizations").hide(1000);
-    $('#giftbuttons').show(1000);
   });
 
-  $("#skipintro").click(function() {    
+  $("#skipintro").click(function() {
     $('#giftbuttons').show(1000);
     return false;
   });
@@ -117,9 +116,9 @@ function initProjectSelect(){
     var project = btn.closest('.project-entry');
 
     if(btn.data('project-selected') == true){
-      container.find('#selected_project_' + projectId).remove();  
+      container.find('#selected_project_' + projectId).remove();
       btn.html('Select Project').removeClass('btn-warning');
-      btn.data('project-selected',false);    
+      btn.data('project-selected',false);
     } else {
       if(container.find('.selected-project').length >= 3){
         alert('You have already selected the maximum of 3 projects. Please deselect another project to add this one.');
@@ -127,19 +126,19 @@ function initProjectSelect(){
       }
       var selected = $('<div id="selected_project_' + projectId + '" class="selected-project span4" />');
       selected.data('project-id',projectId);
-      
+
       project.find('.project-image').clone().appendTo(selected);
-      
+
       var projectTitle = $('<h4 />');
       projectTitle.text(project.find('.project-title-link').text());
       projectTitle.appendTo(selected);
 
       var closeButton = $('<a class="close">&times;</a>');
       closeButton.prependTo(selected);
-      
+
       selected.insertBefore(container.find('.clear-both'));
       btn.html('Deselect Project').addClass('btn-warning');
-      btn.data('project-selected',true);    
+      btn.data('project-selected',true);
     }
 
   });
