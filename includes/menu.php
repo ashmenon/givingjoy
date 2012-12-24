@@ -6,7 +6,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="/index.php"><small><em>beta</em></small>Giving Joy</a>
+        <a class="brand" href="/index.php"><small><em>beta</em></small> Giving Joy</a>
         <div class="nav-collapse collapse navbar-responsive-collapse">
           <ul class="nav">
             <li><a href="/index.php">Home</a></li>
@@ -44,7 +44,7 @@
               <li><a href="/contact.php">Contact</a></li>
               <li><a href="/help-support.php">Help &amp; Support</a></li>
           </ul>
-          
+
           <!--<ul class="nav pull-right">
             <li><a href="#">Link</a></li>
             <li class="divider-vertical"></li>
